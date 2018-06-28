@@ -3,6 +3,8 @@
     margin: 1em 0;
     width: 100vw;
     display: flex;
+    flex-wrap: wrap;
+    position: relative;
 }
 
 .ethereum-classic-order__label {
@@ -14,12 +16,19 @@
     background-color: #FFBE33;
 }
 
+.ethereum-classic-order__container {
+    width: calc(100% - 20px);
+    display: flex;
+    justify-content: center;
+}
+
 .worth {
-    padding: 1.5em 1vw;
+    padding: 2em .5em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex: 1;
     border-right: 1px solid rgba(151, 151, 151, 0.2);
     border-left: 1px solid rgba(151, 151, 151, 0.2);
 }
@@ -45,11 +54,13 @@
 
 .ethereum-classic-order__items {
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    flex: 3;
 }
 
 .ethereum-classic-order__buttons {
-    padding: 2em;
+    padding: 0 2em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -113,7 +124,7 @@
     display: flex;
     flex-direction: column;
     margin: 1.8em;
-    flex: 2;
+    flex: 1;
 }
 
 .description__title {
@@ -146,18 +157,69 @@
 .stock-time-changes {
     padding: 0;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     list-style-type: none;
+    flex: 2;
 }
 
 .stock-time-changes__item {
-    padding: 1.5em 2.5vw;
+    padding: 2em .5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-right: 1px solid rgba(151, 151, 151, 0.2);
+    flex-basis: 16%;
 }
 
 .stock-time-changes__stock-change {
     font-size: 2em;
+}
+
+@media screen and (max-width: 768px) {
+    .ethereum-classic-order__container {
+        flex-direction: column;
+    }
+
+    .description {
+        order: -2;
+    }
+
+    .ethereum-classic-order__buttons {
+        order: -1;
+    }
+
+    .ethereum-classic-order__invest-btn {
+        margin-top: 2em;
+        width: 90%;
+    }
+
+    .ethereum-classic-order__weight-btn {
+        display: none;
+    }
+
+    .ethereum-classic-order__eye-btn {
+        position: absolute;
+        top: 45px;
+        right: 30px;
+    }
+    .description__subtitle--yellow-dot-icon {
+        display: none;
+    }
+
+    .worth {
+        border-top: 1px solid rgba(151, 151, 151, 0.2);
+    }
+    
+    .stock-time-changes {
+        border-top: 1px solid rgba(151, 151, 151, 0.2);
+    }
+    .stock-time-changes__item {
+        flex-basis: 50%;
+    }
+
+    .stock-time-changes__item:nth-child(n+3) {
+        display: none;
+    }    
 }
